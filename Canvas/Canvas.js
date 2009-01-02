@@ -51,15 +51,17 @@ if (Browser.Engine.trident){
 		'v\\:*, o\\:*{behavior:url(#default#VML)}';
 }
 
-var Canvas = new Class({
+var Canvas = new Native({
+    
+    name: 'Canvas',
 
 	initialize: function(){
 		var params = Array.link(arguments, {properties: Object.type, element: $defined});
 		var props = $extend({width: 300, height: 150}, params.properties);
 		var el = (params.element || document.newElement('canvas')).set(props);
 		if (el.getContext) return el;
-		el.attachEvent('onpropertychange', this.changeproperty);
-		el.attachEvent('onresize', this.resize);
+		el.attachEvent('onpropertychange', Canvas.changeproperty);
+		el.attachEvent('onresize', Canvas.resize);
 		el.getContext = function(){
 			return this.context = this.context || new CanvasRenderingContext2D(el);
 		};
@@ -67,27 +69,27 @@ var Canvas = new Class({
 			width: props.width,
 			height: props.height
 		});
-	},
-
-	changeproperty: function(e){
-		var property = e.propertyName;
-		if (property == 'width' || property == 'height'){
-			e = e.srcElement;
-			e.style[property] = e[property];
-			e.getContext().clearRect();
-		}
-	},
-
-	resize: function(e){
-		e = e.srcElement;
-		var efC = e.firstChild;
-		if (efC){
-			efC.style.width = e.width;
-			efC.style.height = e.height;
-		}
 	}
 
 });
+
+Canvas.changeproperty = function(e){
+	var property = e.propertyName;
+	if (property == 'width' || property == 'height'){
+		e = e.srcElement;
+		e.style[property] = e[property];
+		e.getContext().clearRect();
+	}
+};
+
+Canvas.resize = function(e){
+	e = e.srcElement;
+	var efC = e.firstChild;
+	if (efC){
+		efC.style.width = e.width;
+		efC.style.height = e.height;
+	}
+};
 
 /*
 Private Class: CanvasRenderingContext2D
