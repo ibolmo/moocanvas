@@ -41,9 +41,6 @@ Example:
 */
 
 if (Browser.Engine.trident){
-	Element.Constructors.canvas = function(props){
-		return new Canvas(props);
-	};	
 	document.createStyleSheet().cssText = 
 		'canvas {text-align:left;display:inline-block;}' +
 		'canvas div, canvas div * {position:absolute;overflow:hidden}' +
@@ -51,14 +48,31 @@ if (Browser.Engine.trident){
 		'v\\:*, o\\:*{behavior:url(#default#VML)}';
 }
 
+Element.Constructors.canvas = function(props){
+	return new Canvas(props);
+};
+	
+// Todo, replace when functions can be inherited
+$.Element = $.element;
+$.element = function(el, nocash){
+    if ((/^canvas$/i).test(el.tagName) && !el.getContext) {
+    	var clone = new Canvas({ id: el.id, width: el.width, height: el.height });
+    	if (el.parentNode) el.parentNode.replaceChild(clone, el);
+    	el = clone;
+    } else {
+    	el = $.Element(el, nocash);
+    }
+    return el;
+};
+
 var Canvas = new Native({
     
     name: 'Canvas',
 
 	initialize: function(){
-		var params = Array.link(arguments, {properties: Object.type, element: $defined});
+		var params = Array.link(arguments, {properties: Object.type, element: Element.type });
 		var props = $extend({width: 300, height: 150}, params.properties);
-		var el = (params.element || document.newElement('canvas')).set(props);
+		var el = (params.element || $.Element(document.createElement('canvas'))).set(props);
 		if (el.getContext) return el;
 		el.attachEvent('onpropertychange', Canvas.changeproperty);
 		el.attachEvent('onresize', Canvas.resize);
@@ -139,13 +153,12 @@ var CanvasRenderingContext2D = new Class({
 	shadowOffsetY: 0,
 
 	getCoords: function(x,y){
-		var m = this.m, Z = this.Z, Z2 = this.Z2,
-		coord = {
+		var m = this.m, Z = this.Z, Z2 = this.Z2;
+		return {
 			x: Z * (x * m[0][0] + y * m[1][0] + m[2][0]) - Z2,
-			y: Z * (x * m[0][1] + y * m[1][1] + m[2][1]) - Z2
+			y: Z * (x * m[0][1] + y * m[1][1] + m[2][1]) - Z2,
+			toString: function(){ return this.x.round() + ',' + this.y.round() }
 		};
-		coord.toString = function(){ return this.x.round() + ',' + this.y.round() };
-		return coord;
 	}
 
 });

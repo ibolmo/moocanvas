@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="../assets/site.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 		<style type="text/css" media="screen">
 			canvas {
-				border:0;
+				border:2px solid #f00;
 				background: black;	
 			}
 		</style>
@@ -24,7 +24,7 @@
 				var w = 255,
 					h = 255,
 					cv = $('cv');
-				
+					
 				var log = new Element('ul').inject(document.body);
 				
 				var HCookie = new Hash.Cookie('ExCanvasSpeedTest'),
@@ -114,6 +114,8 @@
 		</script>
 	</head>
 	<body style="margin: 0 auto; padding: 50px;">
-		<canvas id="cv" width="255" height="255"></canvas>
+		<div style="border:2px solid #0f0">
+			<canvas id="cv" width="255" height="255"></canvas>
+		</div>
 	</body>
 </html>
