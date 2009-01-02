@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Simple Example</title>
+		<link rel="stylesheet" href="../assets/site.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+		<style type="text/css" media="screen">
+			canvas { background: white; }
+		</style>
+		<script src="../assets/mootools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../Canvas/Canvas.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../Canvas/Path.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../Canvas/Rects.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			window.addEvent('domready', function() {
+				var max = 1000,
+					test = function(i) {
+						
+					this.fillStyle = 'rgb(200,0,0)';
+					this.fillRect((10 / max) * i, (10 / max) * i, (50 / max) * i, (55 / max) * i, (50 / max) * i);
+					
+					this.fillStyle = 'rgba(0,0,200, 0.5)';
+					this.fillRect((33 / max) * i, (33 / max) * i, (55 / max) * i, (50 / max) * i);
+					
+				};
+				
+				var cv = new Canvas('cv').inject(document.body), // inject then build
+					ctx = cv.getContext('2d'),
+					start = $time();
+				(max).times(test.bind(ctx));
+				alert(($time() - start) + ' ms');
+				
+				var cv2 = new Canvas('cv2'), // build then inject
+					ctx2 = cv.getContext('2d'),
+					start = $time();
+				(max).times(test.bind(ctx2));
+				alert(($time() - start) + ' ms');
+				cv2.inject(document.body);
+				
+				start = $time();
+				ctx.element.innerHTML = '';
+				alert($time() - start);
+				
+				start = $time();
+				ctx2.element.remove().setHTML('').inject(ctx2.parent);
+				alert($time() - start);
+			});
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

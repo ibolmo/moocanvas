@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Canvas - ART - Paint</title>
+	<script type="text/javascript" src="../assets/mootools.js"></script>
+	<script src="../Canvas/Canvas.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../Canvas/Path.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../Canvas/Transform.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../Canvas/Rects.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../Canvas/Image.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../Canvas/State.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../Canvas/Gradient.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../Canvas/Pattern.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="http://mootools.net/uploads/canvas-test/ART.js"></script>
+
+	<style type="text/css" media="screen">
+
+		#container {
+			background-color: #fff;
+		}
+
+		#decoration {
+			z-index: 1;
+			position: absolute;
+			top: 100px;
+			left: 300px;
+		}
+
+	</style>
+	
+	<script type="text/javascript" charset="utf-8">
+			
+	window.addEvent('load', function(){
+
+		$('lion').addEvent('click', function(){
+			$('decoration').fade();
+		});
+
+		window.myWindow = new ART.Box({
+			id: 'decoration',
+			title: 20,
+			status: 20
+		});
+
+		window.myButton = new ART.Box({
+			'id': 'button',
+			'height': 20,
+			'width': 56,
+			'shadow': 2,
+			'shadowColor': '#fff',
+			'shadowOpacity': 4,
+			'overlayColor': ['#fefefe', '#a9a9a9'],
+			'borderOpacity': 0.55,
+			'reflection': 0,
+			'radius': 2
+		});
+
+		window.myMenu = new ART.Box({
+			'id': 'menu',
+			'height': 200,
+			'width': 180,
+			'overlayColor': ['#ffffff', '#ffffff'],
+			'overlayOpacity': 0.9,
+			'reflection': 0,
+			'shadow': 10,
+			'shadowOpacity': 0.8,
+			'borderOpacity': 0.3,
+			'radius': 3
+		});
+
+		window.myHud = new ART.Box({
+			'id': 'hud',
+			'height': 250,
+			'width': 300,
+			'overlayColor': ['#000000', '#000000'],
+			'overlayOpacity': 0.8,
+			'reflection': 0,
+			'borderColor': '#aaa',
+			'borderOpacity': 0.5,
+			'radius': 5,
+			'title': 20,
+			'titleColor': ['#333333', '#111111'],
+			'titleOpacity': 0.8
+		});
+
+
+		myWindow.inject('toast');
+		myButton.inject('toast');
+		myMenu.inject('toast');
+		myHud.inject('toast');
+
+		window.myWindowFx = new Fx.Box(myWindow, {fps: 15});
+
+		var db = new Drag.Move('button');
+		var dd = new Drag.Move('decoration');
+		var dm = new Drag.Move('menu');
+		var dh = new Drag.Move('hud');
+
+		$('button').setStyle('z-index', 100);
+		$('hud').setStyle('z-index', 99);
+
+	});
+			
+	</script>
+	
+</head>
+
+<body>
+	<h1>Canvas - ART - Paint</h1>
+	
+	<div id="container">
+		<img src="http://mootools.net/uploads/canvas-test/lion-map.png" id="lion" />
+		<div id="toast">
+			
+		</div>
+		
+	</div>
+
+
+</body>
+</html>

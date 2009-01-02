@@ -1,0 +1,214 @@
+/**
+ * Adapted from http://mootools.net/download
+ * thanks Valerio :).
+ * 
+ */
+
+/** scheme: 365637, 4E564E, 465647, 151C15, 2B392B **/
+body {
+	margin: 0;
+	padding: 0;
+	font:8pt/2.0 Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background: #151c15;
+	color: #ccc;
+}
+
+h1, h2, h3, h4, p {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	list-style: none;
+}
+
+a:link, a:visited {
+	color: #F9F6DF;
+}
+
+a:hover, a:active {
+	color: #faec8f;
+}
+
+h1 span {
+	display: none;
+}
+
+p {
+	padding: 5px 0;
+	line-height: 1.7;
+}
+
+a {
+	outline: none;
+}
+
+form, table {
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+
+	font-size:24px;	
+	color: #4e564e;
+}
+
+/*download*/
+div.download p {
+	padding: 1px 0;
+}
+
+table {
+	width: 100%;
+	border: 0;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 4px 10px;
+}
+
+th {
+	text-align: left;
+	background: #161d16;
+	color: #fff;
+	border-top: 4px solid #2B392B;
+	border-bottom: 1px solid #2B392B;
+}
+
+th h3 {
+	font-size: 13px ;
+}
+
+td {
+	border-bottom: 1px solid #2B392B;
+	border-top: 1px solid #2B392B;
+	vertical-align: middle;
+}
+
+td.check div.check {
+	border: 1px solid #2B392B;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 13px;
+	width: 14px;
+}
+
+td.check div.selected {
+	background-image: url(../images/check.png) !important;
+	background-image: url(../images/check.gif);
+	padding: 2px;
+	border: 0;
+}
+
+td.name {
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+td.description {
+	font-size: 9px;
+	width: 100%;
+	text-align: left;
+}
+
+tr.option {
+	cursor: pointer;
+	background: #161d16;
+	color: #4e564e;
+}
+
+h2.section {
+	font-size: 12px;
+	text-align:left;
+	color: #faec8f;
+}
+#container h2.section, #container h2.options {
+	display: block;
+	text-decoration: none;
+	color: #faec8f;
+}
+
+#container h2.section:hover, #container h2.option:hover {
+	color: #faf3c7;
+}
+
+#advanced, #quick {
+	padding-bottom: 20px;
+}
+
+table#options div.check {
+	width: 13px;
+	height: 13px;
+}
+
+table#options div.selected {
+	background-image: url(../images/radio.png) !important;
+	background-image: url(../images/radio.gif);
+	padding: 2px;
+}
+
+p.submit {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#container {
+	position: relative;
+	width: 800px;
+	margin: 30px auto 10px;
+}
+
+#container h1 {
+	display: none;
+	text-align: right;
+	overflow:hidden;
+}
+
+#container h2:hover {
+	color: #465647;
+}
+
+#container pre {
+	color: #fff;
+	padding:0 20px 10px 40px;
+}
+
+#container #example {
+	text-align:center;
+}
+
+#container #content-navigation {
+	font: 12px;
+	text-align: right;
+	height: 14px;
+}
+#container #content-navigation a {
+	font-size: 10px;
+	padding:0 15px 0 15px;
+}
+
+#container h3 {
+	font-size: 14px;
+	font-weight: bolder;
+	display: block;
+	text-align: center;
+}
+
+#content-demos li {
+	float: left;
+	padding: 0px 20px 10px 20px;
+}
+
+#footer {
+	text-align: center;
+	padding:50px 0 25px 0;	
+}
+
+#container .anchor {
+	text-align: right;
+	display: block;
+}
+
+canvas {
+	border:1px solid #444;
+}
