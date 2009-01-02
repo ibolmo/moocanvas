@@ -43,19 +43,7 @@ Example:
 if (Browser.Engine.trident){
 	Element.Constructors.canvas = function(props){
 		return new Canvas(props);
-	};
-	
-	// Todo, replace when functions can be inherited
-    $.Element = $.element;
-	$.element = function(el, nocash){
-	    el = $.Element(el, nocash);
-	    if ((/^canvas$/i).test(el.tagName)) {
-	        el = el.clone(true, true).cloneEvents(el).replaces(el);
-	        el = new Canvas(el);
-	    }
-	    return el;
-	};
-	
+	};	
 	document.createStyleSheet().cssText = 
 		'canvas {text-align:left;display:inline-block;}' +
 		'canvas div, canvas div * {position:absolute;overflow:hidden}' +
@@ -68,9 +56,9 @@ var Canvas = new Native({
     name: 'Canvas',
 
 	initialize: function(){
-		var params = Array.link(arguments, {properties: Object.type, element: Element.type, id: String.type });
+		var params = Array.link(arguments, {properties: Object.type, element: $defined});
 		var props = $extend({width: 300, height: 150}, params.properties);
-		var el = (params.element || $(params.id) || document.newElement('canvas')).set(props);
+		var el = (params.element || document.newElement('canvas')).set(props);
 		if (el.getContext) return el;
 		el.attachEvent('onpropertychange', Canvas.changeproperty);
 		el.attachEvent('onresize', Canvas.resize);
