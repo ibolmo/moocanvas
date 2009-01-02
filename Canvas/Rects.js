@@ -28,7 +28,7 @@ CanvasRenderingContext2D.implement({
 		Currently, clearRect clears all of the canvas.
 	 */
 	clearRect: function(x, y, w, h){
-		this.element.innerHTML = '';
+	    this.element.innerHTML = '';
 		this.m = [
 			[1, 0 ,0],
 			[0, 1, 0],

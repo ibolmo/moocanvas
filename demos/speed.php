@@ -12,7 +12,13 @@
 			}
 		</style>
 		<script src="../assets/mootools.js" type="text/javascript" charset="utf-8"></script>
-		<script src="excanvas-compressed.js" type="text/javascript" charset="utf-8"></script>
+    <?php if (key_exists('excanvas', $_REQUEST)): ?>
+        <script src="excanvas.js" type="text/javascript" charset="utf-8"></script>        
+    <?php else: ?>
+		<script src="../Canvas/Canvas.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../Canvas/Path.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../Canvas/Rects.js" type="text/javascript" charset="utf-8"></script>
+    <?php endif ?>
 		<script type="text/javascript" charset="utf-8">
 			window.addEvent('domready', function() {
 				var w = 255,

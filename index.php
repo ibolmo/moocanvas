@@ -184,7 +184,6 @@ myCanvas.inject(document.body); // for instance</pre>
 					<li><a href="demos/example1.html">Sprites demo, by Excanvas team</a></li>
 					<li><a href="demos/example2.html">3D-Cube demo, by Excanvas team</a></li>
 					<li><a href="demos/tests.php">Test Page</a></li>
-					<li><a href="demos/nagaozen.html">Nagaozen's Demo Page (incomplete)</a></li>
 				</ul>
 				<div style="clear:both"></div>
 				<a href="#top" class="anchor">Top</a>
