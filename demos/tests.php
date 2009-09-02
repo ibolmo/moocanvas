@@ -8,7 +8,7 @@
 	<?php if (strpos(@$_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false && in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1'))): ?>
 	    <script src="../../moobugger/debugger.js" type="text/javascript" charset="utf-8"></script>
 	<?php endif ?>
-		<script src="../assets/mootools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../assets/mootools-1.2.3-core-nc.js" type="text/javascript" charset="utf-8"></script>
     <?php if (key_exists('excanvas', $_REQUEST)): ?>
         <script src="excanvas.js" type="text/javascript" charset="utf-8"></script>        
     <?php else: ?>

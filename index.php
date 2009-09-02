@@ -61,7 +61,7 @@ $files = array(
 		<meta name="robots" content="all" />
 		<title>MooCanvas, MooTools-style excanvas</title>
 		<link rel="stylesheet" href="assets/site.css" type="text/css" media="screen" title="site css" charset="utf-8" />
-		<script src="assets/mootools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/mootools-1.2.3-core-yc.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/moocanvas.site.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/site.js" type="text/javascript" charset="utf-8"></script>
 	</head>
