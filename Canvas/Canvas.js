@@ -45,7 +45,7 @@ if (Browser.Engine.trident){
 		'canvas {text-align:left;display:inline-block;}' +
 		'canvas div, canvas div * {position:absolute;overflow:hidden}' +
 		'canvas div * {width:10px;height:10px;}' +
-		'v\\:*, o\\:*{behavior:url(#default#VML)}';
+		'v\\:group,v\\:image,v\\:fill,v\\:stroke,v\\:shape{behavior:url(#default#VML)}';
 }
 
 Element.Constructors.canvas = function(props){
