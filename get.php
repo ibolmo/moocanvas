@@ -1,4 +1,5 @@
 <?php
+
 if(!array_key_exists('files', $_POST)) {
 	exit();
 }
